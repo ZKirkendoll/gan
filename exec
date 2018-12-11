@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+container=$(cat .name)
+if [ $container = "nvidia-docker-boilerplate" ]; then
+   (>&2 echo "ERROR: You must name your project! Use 'echo [project-name] > .name' to name the project.");
+   exit 1
+fi
+nvidia-docker build -t $container:latest .
+nvidia-docker run -it \
+              -v $PWD:/app \
+              $container:latest "$@"
