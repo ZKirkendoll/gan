@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 """""""""
  Author: Zack Kirkendoll
 """""""""
@@ -185,7 +185,7 @@ def main():
     show = generated_image[0, :, :, 0]
     plt.imshow(show, cmap='gray')  # plotting an image
     plt.colorbar()
-    plt.grid(False)
+    plt.axis('off')
     plt.show()
 
     # discriminator
